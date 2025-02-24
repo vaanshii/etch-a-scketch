@@ -24,7 +24,34 @@
 				</div>
 				<div class="sketch-bottom">
 					<div class="left-knob"></div>
-					<div class="button-container"></div>
+					<div class="buttons-container">
+						<label class="rainbow-switch">
+							Rainbow
+							<input type="checkbox" />
+							<span class="switch-slider"></span>
+						</label>
+						<div class="clear-container">
+							<button class="clear-button">Clear</button>
+						</div>
+						<div class="slider-container">
+							Pixels
+							<input
+								type="range"
+								min="2"
+								max="100"
+								value="16"
+								class="slider"
+								id="range"
+							/>
+						</div>
+						<div class="color-picker">
+							Color
+							<input type="color" id="color-picker" value="#000000" />
+						</div>
+						<div class="eraser-container">
+							<button class="eraser-button">Eraser</button>
+						</div>
+					</div>
 					<div class="right-knob"></div>
 				</div>
 			</div>
