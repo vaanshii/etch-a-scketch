@@ -98,7 +98,6 @@ h3 {
 	width: calc(100% / 16);
 	height: calc(100% / 16);
 	box-sizing: border-box;
-	/* border: 1px solid #727272; */
 	aspect-ratio: 1 / 1;
 }
 

@@ -17,6 +17,7 @@ colorPicker.addEventListener("input", () => {
 eraserButton.addEventListener("click", () => {
 	if (isEraserButtonOn) {
 		colorPicker.value = "#ffffff";
+		rainbowToggle.checked = false;
 	} else {
 		colorPicker.value = colorPickerLastValue;
 	}
@@ -33,25 +34,41 @@ pixelSlider.addEventListener("input", () => {
 	makePixel(Number(pixelSlider.value));
 });
 
+function paintPixel(pixel) {
+	pixel.style.backgroundColor = rainbowToggle.checked
+		? getRainbowColors()
+		: colorPicker.value;
+}
+
 function makePixel(pixelCount) {
 	const gridSize = pixelCount * pixelCount;
+	const fragment = document.createDocumentFragment();
+	let isDrawing = false;
 	for (let i = 0; i < gridSize; i++) {
 		const pixel = document.createElement("div");
 		pixel.classList.add("pixel");
 		pixel.style.width = `calc(100% / ${pixelCount})`;
 		pixel.style.height = `calc(100% / ${pixelCount})`;
-		screenContainer.appendChild(pixel);
-
-		pixel.addEventListener("mouseover", () => {
-			if (rainbowToggle.checked) {
-				pixel.style.backgroundColor = getRainbowColors();
-			} else {
-				pixel.style.backgroundColor = colorPicker.value;
-			}
-			pixel.style.width = `calc(100% / ${pixelCount})`;
-			pixel.style.height = `calc(100% / ${pixelCount})`;
-		});
+		fragment.appendChild(pixel);
 	}
+	screenContainer.appendChild(fragment);
+
+	screenContainer.addEventListener("mousedown", (e) => {
+		if (e.target.classList.contains("pixel")) {
+			isDrawing = true;
+			paintPixel(e.target);
+		}
+	});
+
+	screenContainer.addEventListener("mouseover", (e) => {
+		if (isDrawing && e.target.classList.contains("pixel")) {
+			paintPixel(e.target);
+		}
+	});
+
+	document.addEventListener("mouseup", () => {
+		isDrawing = false;
+	});
 }
 
 function clearScreen() {
