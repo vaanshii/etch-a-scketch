@@ -8,6 +8,8 @@ const eraserButton = document.querySelector("#eraser-button");
 makePixel(16);
 console.log(Number(pixelSlider.value));
 
+rainbowToggle.addEventListener("click", () => {});
+
 clearButton.addEventListener("click", () => {
 	clearScreen();
 	makePixel(Number(pixelSlider.value) || 16);
@@ -29,7 +31,11 @@ function makePixel(pixelCount) {
 		screenContainer.appendChild(pixel);
 
 		pixel.addEventListener("mouseover", () => {
-			pixel.style.backgroundColor = colorPicker.value;
+			if (rainbowToggle.checked) {
+				pixel.style.backgroundColor = getRainbowColors();
+			} else {
+				pixel.style.backgroundColor = colorPicker.value;
+			}
 			pixel.style.width = `calc(100% / ${pixelCount})`;
 			pixel.style.height = `calc(100% / ${pixelCount})`;
 		});
@@ -41,3 +47,14 @@ function clearScreen() {
 		screenContainer.removeChild(screenContainer.firstChild);
 	}
 }
+
+function getRandomNumber(number) {
+	return Math.floor(Math.random() * (number + 1));
+}
+
+function getRainbowColors() {
+	return `rgb(${getRandomNumber(255)} ${getRandomNumber(255)} ${getRandomNumber(
+		255
+	)} )`;
+}
+
