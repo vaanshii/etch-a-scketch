@@ -36,8 +36,8 @@ body {
 }
 
 .sketch-body {
-	width: 10in;
-	height: 8in;
+	width: 9in;
+	height: 9in;
 	background: rgb(255, 160, 160);
 	background: linear-gradient(
 		286deg,
@@ -58,6 +58,15 @@ h3 {
 	font-style: italic;
 }
 
+.sketch-heading {
+	width: inherit;
+	height: 125px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(223, 209, 134);
+}
+
 .heading-title {
 	font-family: "Princess Sofia", serif;
 	font-weight: 700;
@@ -67,32 +76,46 @@ h3 {
 	margin-right: 15px;
 }
 
-.sketch-heading {
-	width: inherit;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex: 1;
-	color: rgb(223, 209, 134);
-}
-
 .sketch-screen {
 	background-color: #fff;
-	width: 7.5in;
-	height: 6in;
-	flex: 4;
-	border-radius: 18px;
+	width: 600px;
+	height: 600px;
+	border-radius: 8px;
 	box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
 	-webkit-box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
 	-moz-box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
+	display: flex;
+	flex-wrap: wrap;
+	flex: 1;
+}
+.sketch-screen-container {
+	width: inherit;
+	height: inherit;
+	border-radius: 8px;
+	box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
+	-webkit-box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
+	-moz-box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
+	display: flex;
+	flex-wrap: wrap;
+	flex: 1;
+}
+
+.pixel {
+	width: calc(100% / 16);
+	height: calc(100% / 16);
+	box-sizing: border-box;
+	/* border: 1px solid #727272; */
+	aspect-ratio: 1 / 1;
 }
 
 .sketch-bottom {
 	width: inherit;
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex: 1;
+	flex-shrink: 1;
 }
 
 .buttons-container {
@@ -105,7 +128,7 @@ h3 {
 
 .left-knob,
 .right-knob {
-	height: 100px;
+	height: 90px;
 	width: 100px;
 	border-radius: 50px;
 	background-color: #fff;
