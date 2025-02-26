@@ -19,7 +19,7 @@ body {
 		286deg,
 		rgba(255, 221, 219, 1) 0%,
 		rgba(252, 252, 252, 1) 11%,
-		rgba(255, 238, 238, 1) 48%,
+		#ffeeee 48%,
 		rgba(255, 255, 255, 1) 71%,
 		rgba(255, 221, 219, 1) 100%
 	);
@@ -81,9 +81,6 @@ h3 {
 	width: 600px;
 	height: 600px;
 	border-radius: 8px;
-	box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
-	-webkit-box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
-	-moz-box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
 	display: flex;
 	flex-wrap: wrap;
 	flex: 1;
@@ -92,9 +89,6 @@ h3 {
 	width: inherit;
 	height: inherit;
 	border-radius: 8px;
-	box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
-	-webkit-box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
-	-moz-box-shadow: 1px -1px 22px -1px rgba(0, 0, 0, 1) inset;
 	display: flex;
 	flex-wrap: wrap;
 	flex: 1;
@@ -192,6 +186,7 @@ h3 {
 	border: none;
 	width: 50px;
 	border-radius: 20px;
+	border: 2px solid #fff;
 }
 
 #color-picker::-webkit-color-swatch-wrapper {
