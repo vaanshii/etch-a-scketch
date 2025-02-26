@@ -5,12 +5,10 @@ const clearButton = document.querySelector("#clear-button");
 const colorPicker = document.querySelector("#color-picker");
 const eraserButton = document.querySelector("#eraser-button");
 
-let colorPickerLastValue = "";
+let colorPickerLastValue = "#000000";
 let isEraserButtonOn = true;
 
 makePixel(16);
-console.log(Number(pixelSlider.value));
-console.log(colorPicker.value);
 
 colorPicker.addEventListener("input", () => {
 	colorPickerLastValue = colorPicker.value;
@@ -22,7 +20,7 @@ eraserButton.addEventListener("click", () => {
 	} else {
 		colorPicker.value = colorPickerLastValue;
 	}
-	isOn = !isOn;
+	isEraserButtonOn = !isEraserButtonOn;
 });
 
 clearButton.addEventListener("click", () => {
@@ -33,7 +31,6 @@ clearButton.addEventListener("click", () => {
 pixelSlider.addEventListener("input", () => {
 	clearScreen();
 	makePixel(Number(pixelSlider.value));
-	console.log(Number(pixelSlider.value));
 });
 
 function makePixel(pixelCount) {
