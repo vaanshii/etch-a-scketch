@@ -5,10 +5,25 @@ const clearButton = document.querySelector("#clear-button");
 const colorPicker = document.querySelector("#color-picker");
 const eraserButton = document.querySelector("#eraser-button");
 
+let colorPickerLastValue = "";
+let isEraserButtonOn = true;
+
 makePixel(16);
 console.log(Number(pixelSlider.value));
+console.log(colorPicker.value);
 
-rainbowToggle.addEventListener("click", () => {});
+colorPicker.addEventListener("input", () => {
+	colorPickerLastValue = colorPicker.value;
+});
+
+eraserButton.addEventListener("click", () => {
+	if (isEraserButtonOn) {
+		colorPicker.value = "#ffffff";
+	} else {
+		colorPicker.value = colorPickerLastValue;
+	}
+	isOn = !isOn;
+});
 
 clearButton.addEventListener("click", () => {
 	clearScreen();
@@ -57,4 +72,3 @@ function getRainbowColors() {
 		255
 	)} )`;
 }
-
